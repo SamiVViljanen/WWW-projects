@@ -57,21 +57,17 @@ def index():
 
 @app.route("/login", methods=["POST"])
 def login():
-    if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+    username = request.form["username"]
+    password = request.form["password"]
 
-        user = get_user(username)
+    user = get_user(username)
 
-        if user and bcrypt.check_password_hash(user[2], password):
-            session["username"] = username
-            return redirect("/home")
-        
-        else:
-            error = "Wrong username or password"
-            return render_template("index.html", login_error=error, show_register=False)
-        
-    return render_template("login.html")
+    if user and bcrypt.check_password_hash(user[2], password):
+        session["username"] = username
+        return redirect("/home")
+    else:
+        error = "Wrong username or password"
+        return render_template("index.html", login_error=error, show_register=False)  # Pysyy Login-puolella
 
 
 @app.route("/register", methods=["POST"])

@@ -44,9 +44,9 @@ body {
 }
 
 .form-box.Register {
-    display: none;
     right: 0;
     padding: 0 60px;
+    display: none;
 }
 
 .form-box h2 {
@@ -180,8 +180,9 @@ body {
     left: 0;
     text-align: left;
     padding: 0 150px 60px 40px;
-    display: none;
-    transition: 1.5s ease;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
 }
 
 .info-content h2 {
