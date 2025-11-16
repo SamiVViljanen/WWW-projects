@@ -5,6 +5,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
     <title>MSPC OFFICIAL</title>
 </head>
 
@@ -12,6 +13,7 @@
     <!-- LOGIN FORM -->
     <div class="container">
         <div class="curved-shape"></div>
+        <div class="curved-shape2"></div>
         <div class="form-box Login">
             <h2>Login</h2>
             <form action="#">
@@ -38,6 +40,35 @@
         </div>
 
         <div class="info-content Login">
+            <h2>WELCOME BACK!</h2>   
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, asperiores!</p>
+        </div>
+
+        <div class="form-box Register">
+            <h2>Register</h2>
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" required>
+                    <label for="username">Username</label>
+                    <i class='bx  bx-user'    ></i> 
+                </div>
+
+                <div class="input-box">
+                    <input type="text" required>
+                    <label for="password">Password</label>
+                    <i class='bx  bx-lock'    ></i> 
+                </div>
+
+                <div class="input-box">
+                    <button class="btn" type="submit">Register</button>
+                </div>
+
+                <div class="regi-link">
+                    <p>Already have an account? <a href="#" class="SignInLink">Sign in</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="info-content Register">
             <h2>WELCOME BACK!</h2>   
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, asperiores!</p>
         </div>

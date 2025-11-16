@@ -24,6 +24,7 @@ body {
     height: 450px;
     border: 2px solid #ff2770;
     box-shadow: 0 0 25px #ff2770;
+    overflow: hidden;
 }
 
 .container .form-box {
@@ -40,6 +41,12 @@ body {
 .form-box.Login {
     left: 0;
     padding: 0 40px;
+}
+
+.form-box.Register {
+    display: none;
+    right: 0;
+    padding: 0 60px;
 }
 
 .form-box h2 {
@@ -168,6 +175,13 @@ body {
     padding: 0 40px 60px 150px;
 }
 
+.info-content.Register {
+    right: 0;
+    text-align: right;
+    padding: 0 40px 60px 150px;
+    display: none;
+}
+
 .info-content h2 {
     text-transform: uppercase;
     font-size: 36px;
@@ -185,7 +199,22 @@ body {
     height: 600px;
     width: 850px;
     background: linear-gradient(45deg, #25252b, #ff2770);
-        z-index: 0;
-        transform: rotate(10deg) skewY(40deg);
-        transform-origin: bottom right;
+    transform: rotate(0deg) skewY(0deg);
+    transform-origin: bottom right;
+    transition: .5s;
+}
+
+.container.active .curved-shape {
+    transform: rotate(10deg) skewY(40deg);
+}
+
+.container .curved-shape2 {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    height: 600px;
+    width: 850px;
+    background: linear-gradient(45deg, #25252b, #ff2770);
+    transform: rotate(10deg) skewY(40deg);
+    transform-origin: bottom right;
 }

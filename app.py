@@ -106,4 +106,7 @@ def logout():
 
 if __name__ == "__main__":
     server = Server(app.wsgi_app)
+    server.watch('templates/*.html')
+    server.watch('static/*.css')
+    server.watch('static/*.js')
     server.serve(debug=True)
