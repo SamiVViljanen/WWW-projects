@@ -13,17 +13,22 @@
     <div class="container">
         <div class="curved-shape"></div>
         <div class="curved-shape2"></div>
-        <div class="form-box Login">
+        <div class="form-box Login" {% if show_register %}style="display:none;"{% endif %}>
             <h2>Login</h2>
-            <form action="#">
+
+            {% if login_error %}
+            <div class="error">{{ login_error }}</div>
+            {% endif %}
+
+            <form action="/login" method="POST">
                 <div class="input-box">
-                    <input type="text" required>
+                    <input type="text" name="username" required>
                     <label for="username">Username</label>
                     <i class='bx  bx-user'    ></i> 
                 </div>
 
                 <div class="input-box">
-                    <input type="text" required>
+                    <input type="password" name="password" required>
                     <label for="password">Password</label>
                     <i class='bx  bx-lock'    ></i> 
                 </div>
@@ -43,17 +48,22 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, asperiores!</p>
         </div>
 
-        <div class="form-box Register">
+        <div class="form-box Register" {% if not show_register %}style="display:none;"{% endif %}>
             <h2>Register</h2>
-            <form action="#">
+
+            {% if register_error %}
+            <div class="error">{{ register_error }}</div>
+            {% endif %}
+
+            <form action="/register" method="POST">
                 <div class="input-box">
-                    <input type="text" required>
+                    <input type="text" name="username" required>
                     <label for="username">Username</label>
                     <i class='bx  bx-user'    ></i> 
                 </div>
 
                 <div class="input-box">
-                    <input type="text" required>
+                    <input type="password" name="password" required>
                     <label for="password">Password</label>
                     <i class='bx  bx-lock'    ></i> 
                 </div>
@@ -68,7 +78,7 @@
             </form>
         </div>
         <div class="info-content Register">
-            <h2>WELCOME BACK!</h2>   
+            <h2>WELCOME!</h2>   
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, asperiores!</p>
         </div>
     </div>

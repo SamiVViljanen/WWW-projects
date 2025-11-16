@@ -78,7 +78,7 @@ body {
 .input-box input:focus,
 .input-box input:valid {
     border-bottom: 2px solid #ff2770;
-    transition: .5s;
+    transition: 1.5s ease;
 }
 
 .input-box label {
@@ -88,7 +88,7 @@ body {
     transform: translateY(-50%);
     font-size: 16px;
     color: #fff;
-    transition: .5s;
+    transition: 1.5s ease;
 }
 
 .input-box input:focus ~ label,
@@ -103,7 +103,7 @@ body {
     right: 0;
     font-size: 18px;
     transform: translateY(-50%);
-    transition: .5s;
+    transition: 1.5s ease;
 }
 
 .input-box input:focus ~ i,
@@ -134,7 +134,7 @@ body {
     top: -100%;
     left: 0;
     z-index: -1;
-    transition: .5s;
+    transition: 1.5s ease;
 
 }
 
@@ -173,13 +173,15 @@ body {
     right: 0;
     text-align: right;
     padding: 0 40px 60px 150px;
+    transition: 1.5s ease;
 }
 
 .info-content.Register {
-    right: 0;
-    text-align: right;
-    padding: 0 40px 60px 150px;
+    left: 0;
+    text-align: left;
+    padding: 0 150px 60px 40px;
     display: none;
+    transition: 1.5s ease;
 }
 
 .info-content h2 {
@@ -191,6 +193,17 @@ body {
 .info-content p {
     font-size: 16px;
 }
+
+.container.active .info-content.Login {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container.active .info-content.Register {
+    display: flex;
+    opacity: 1;
+}
+
 
 .container .curved-shape {
     position: absolute;
@@ -205,21 +218,32 @@ body {
 }
 
 .container.active .curved-shape {
-    transform: rotate(10deg) skewY(40deg);
+    transform: rotate(10deg) skewY(40deg) translateX(200%);
 }
 
 .container .curved-shape2 {
     position: absolute;
-    left: 250px;
-    top: 100%;
+    left: -100%;
+    top: -5px;
     height: 600px;
     width: 850px;
-    background: #25252b;
-    border-top: 3px solid #ff2770;
-    transform: rotate(0deg) skewY(0deg);
+    background: linear-gradient(45deg, #ff2770, #25252b);
+    transform: rotate(-10deg) skewY(-40deg);
     transform-origin: bottom left;
+    transition: left 1.5s ease;
+    z-index: 0;
 }
 
 .container.active .curved-shape2 {
-    transform: rotate(-11deg) skewY(-41deg);
+    left: 0;
+}
+
+.container.active .form-box.Login,
+.container.active .info-content.Login {
+    display: none;
+}
+
+.container.active .form-box.Register,
+.container.active .info-content.Register {
+    display: flex;
 }

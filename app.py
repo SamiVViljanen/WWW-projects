@@ -55,7 +55,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=["POST"])
 def login():
     if request.method == "POST":
         username = request.form["username"]
@@ -68,12 +68,13 @@ def login():
             return redirect("/home")
         
         else:
-            return "Wrong username or password"
+            error = "Wrong username or password"
+            return render_template("index.html", login_error=error, show_register=False)
         
     return render_template("login.html")
 
 
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register", methods=["POST"])
 def register():
     if request.method == "POST":
         username = request.form["username"]
@@ -83,9 +84,11 @@ def register():
 
         try:
             create_user(username, password_hash)
-            return redirect("/login")
+            session["username"] = username
+            return redirect("/")
         except:
-            return "Käyttäjänimi on jo olemassa"
+            error = "Username already exists!"
+            return render_template("index.html", register_error=error, show_register=True)
 
     return render_template("register.html")
 
@@ -93,7 +96,7 @@ def register():
 @app.route("/home")
 def home():
     if "username" not in session:
-        return redirect("/login")
+        return redirect("/")
     
     return render_template("home.html", username=session["username"])
 
@@ -101,7 +104,7 @@ def home():
 @app.route("/logout")
 def logout():
     session.pop("username", None)
-    return redirect("/login")
+    return redirect("/")
 
 
 if __name__ == "__main__":
